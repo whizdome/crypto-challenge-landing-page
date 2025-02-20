@@ -167,6 +167,151 @@
                 font-size: 1.2rem;
             }
         }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            margin: 30px 0;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .challenge-text {
+            font-size: 1.2rem;
+            color: var(--primary-green);
+            font-weight: 600;
+            margin: 20px 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            position: relative;
+            background: linear-gradient(145deg, #0c1220, #0a0f1c);
+            margin: 15% auto;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            border: 1px solid rgba(51, 255, 102, 0.3);
+            box-shadow: 0 0 30px rgba(51, 255, 102, 0.1);
+            animation: modalFade 0.3s ease-in-out;
+        }
+
+        @keyframes modalFade {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-content h2 {
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, #33ff66, #2ad657);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 20px 0;
+        }
+
+        .payment-button {
+            padding: 25px;
+            border: 2px solid rgba(51, 255, 102, 0.2);
+            border-radius: 15px;
+            background: rgba(51, 255, 102, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .payment-button:hover {
+            background: rgba(51, 255, 102, 0.1);
+            transform: translateY(-5px);
+            border-color: rgba(51, 255, 102, 0.4);
+            box-shadow: 0 10px 20px rgba(51, 255, 102, 0.1);
+        }
+
+        .payment-button h3 {
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        .payment-button p {
+            color: var(--primary-green);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--text-light);
+            opacity: 0.7;
+            transition: all 0.2s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .close-modal:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 30% auto;
+                padding: 30px;
+            }
+
+            .payment-options {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-button {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -189,15 +334,25 @@
 
         <div class="about-section">
             <h2>Who is Tek Bruv?</h2>
-            <p>Hey fren, I'm Tekeme. I know what it's like to feel stuck, especially in a country like Nigeria, where jobs are scarce and inflation is at an all-time high. I understand the struggle because I used to be there. I know what it feels like to be so broke that you don't know where your next meal will come from.</p>
+            <p>Hey friend, I'm Tek. I know what it's like to feel stuck, especially in a country like Nigeria, where jobs are scarce and inflation is at an all-time high. I understand the struggle because I used to be there. I know what it feels like to be so broke that you don't know where your next meal will come from.</p>
             <p>I started with just $200. In 2 weeks my portfolio grew to over $2,000. I took out $1000 and challenged myself to turn it into $5,000. Through strategic crypto trades, I grew my portfolio to over $7,600.</p>
             
-            <h3>A Snapshot of My Results:</h3>
-            <ul class="benefits-list">
-                <li>$700 profit from an Ethereum trade in just 4 days</li>
-                <li>Consistent gains that compound into great profits</li>
-                <li>Every trade shared in real-time with complete transparency</li>
-            </ul>
+            <h3>See Our Previous Challenge Results:</h3>
+            <div class="video-container">
+                <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube-nocookie.com/embed/-3wXWmcCTpI?si=YFZzDzYbVrF2FaJO&amp;start=56" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p class="challenge-text">This was from our previous challenge... and now it's about to get bigger!</p>
+        </div>
+            </div>
         </div>
 
         <div class="features-grid">
@@ -263,6 +418,45 @@
             Risk Warning: Cryptocurrency trading carries significant risk. Past performance does not guarantee future results. 
             Only trade with money you can afford to lose. This is not financial advice.
         </p>
+        
+        <div class="footer">
+            <p>2025 Tek Media. All rights reserved.</p>
+            <p>Privacy Policy | Terms of Service</p>
+        </div>
     </div>
+
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Choose Payment Option</h2>
+            <div class="payment-options">
+                <a href="https://flutterwave.com/pay/10k-challenge-usd" class="payment-button">
+                    <h3>Pay with USD</h3>
+                </a>
+                <a href="https://flutterwave.com/pay/10k-challenge-ngn" class="payment-button">
+                    <h3>Pay with NGN</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('a[href="#join"]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('paymentModal').style.display = 'block';
+            });
+        });
+
+        document.querySelector('.close-modal').addEventListener('click', () => {
+            document.getElementById('paymentModal').style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target == document.getElementById('paymentModal')) {
+                document.getElementById('paymentModal').style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
